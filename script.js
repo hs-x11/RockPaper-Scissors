@@ -1,5 +1,10 @@
-const choiceRPS = ['Rock', 'Paper', 'Scissor'];
 
-function getComputerChoice() {
+function rpsMatch(playerSelection, computerSelection) {
+
 }
-console.log(choiceRPS)
+
+let choiceRPS = ['Rock', 'Paper', 'Scissor'];
+function getComputerChoice() {
+    console.log(choiceRPS[(Math.floor(Math.random() * choiceRPS.length))]);
+}
+getComputerChoice()
