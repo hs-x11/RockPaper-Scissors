@@ -3,11 +3,13 @@ function getComputerChoice() {
     return(choiceRPS[(Math.floor(Math.random() * choiceRPS.length))]);
 }
 
-let playerResponse = prompt('Choose Rock, Paper, or Scissor');
-const computerSelection = getComputerChoice();
-const playerSelection = playerResponse.toLowerCase();
 
 function game() {
+
+    let playerResponse = prompt('Choose Rock, Paper, or Scissor');
+    const computerSelection = getComputerChoice();
+    const playerSelection = playerResponse.toLowerCase();
+
     function playRound(playerSelection, computerSelection) {
         if (playerSelection === computerSelection) {
             return `No one wins it's a draw`;
@@ -30,8 +32,26 @@ function game() {
     }
     console.log(`Player chose: ${playerSelection}`);
     console.log(`Computer chose: ${computerSelection}`);
-    console.log(playRound(playerSelection, computerSelection));
+    
+    let playerScore = 0; 
+    let computerScore = 0;
+
+    const roundResult = playRound(playerSelection, computerSelection);
+    if (roundResult === `You Win!`) {
+        userScore++;
+    } else if (roundResult === `You Lose!`) {
+        computerScore++;
+    }
+
+
+    if (playerScore > computerScore) {
+        console.log('You Win!');
+    } else if (computerScore > playerScore) {
+        console.log('Womp womp you lose');
+    }
 }
+
+
 
 for(rounds = 1; rounds <= 5; rounds++) {
     console.log(game());
